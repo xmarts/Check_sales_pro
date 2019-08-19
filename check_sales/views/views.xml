@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+       <record id="view_company_form_inherit_box" model="ir.ui.view">
+          <field name="name">view.company.form.add.text.field.box</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+              <field name="Crear_proyect" attrs="{'readonly': [('state', 'in', ('sale',))]}"/>
+            </xpath>
+             <xpath expr="//button[@name='action_confirm']" position="replace">
+
+              <button name="action_confirm"  id="action_confirm" string="Confirm" class="btn-primary" type="object" attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>
+        </xpath> 
+           </field>
+      </record>
+  </data>
+</odoo>
